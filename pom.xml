@@ -8,45 +8,72 @@
     <artifactId>designpatterns</artifactId>
     <version>1.0-SNAPSHOT</version>
 
+    <repositories>
+        <repository>
+            <id>mssqlJDBC</id>
+            <name>Repo for MSSQL AUTH</name>
+            <url>http://ida.fel.cvut.cz/maven</url>
+        </repository>
+    </repositories>
 
 <dependencies>
     <dependency>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter</artifactId>
-        <version>2.1.4.RELEASE</version>
+        <version>2.1.8.RELEASE</version>
     </dependency>
     <dependency>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-web</artifactId>
-        <version>2.1.4.RELEASE</version>
+        <version>2.1.8.RELEASE</version>
     </dependency>
     <dependency>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-thymeleaf</artifactId>
-        <version>2.1.4.RELEASE</version>
+        <version>2.1.8.RELEASE</version>
     </dependency>
     <dependency>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-data-jpa</artifactId>
-        <version>2.1.4.RELEASE</version>
+        <version>2.1.8.RELEASE</version>
     </dependency>
     <!-- https://mvnrepository.com/artifact/com.h2database/h2 -->
     <dependency>
         <groupId>org.hibernate</groupId>
         <artifactId>hibernate-core</artifactId>
-        <version>4.3.6.Final</version>
+        <version>5.2.11.Final</version>
     </dependency>
     <dependency>
         <groupId>org.javassist</groupId>
         <artifactId>javassist</artifactId>
         <version>3.18.2-GA</version>
     </dependency>
+<!--    <dependency>-->
+<!--        <groupId>mysql</groupId>-->
+<!--        <artifactId>mysql-connector-java</artifactId>-->
+<!--        <version>5.1.32</version>-->
+<!--        <scope>runtime</scope>-->
+<!--    </dependency>-->
+    <!-- https://mvnrepository.com/artifact/com.microsoft.sqlserver/sqljdbc -->
+    <!-- https://mvnrepository.com/artifact/com.microsoft.sqlserver/sqljdbc4 -->
+    <!-- https://mvnrepository.com/artifact/com.microsoft.sqlserver/mssql-jdbc -->
     <dependency>
-        <groupId>mysql</groupId>
-        <artifactId>mysql-connector-java</artifactId>
-        <version>5.1.32</version>
-        <scope>runtime</scope>
+        <groupId>com.microsoft.sqlserver</groupId>
+        <artifactId>mssql-jdbc</artifactId>
+        <version>8.1.0.jre8-preview</version>
+        <scope>test</scope>
     </dependency>
+
+    <!-- https://mvnrepository.com/artifact/com.microsoft.sqlserver/sqljdbc_auth -->
+    <dependency>
+        <groupId>com.microsoft.sqlserver</groupId>
+        <artifactId>sqljdbc_auth</artifactId>
+        <version>6.0.8112</version>
+        <classifier>win64</classifier>
+        <scope>runtime</scope>
+        <type>dll</type>
+    </dependency>
+
     <dependency>
         <groupId>org.apache.tomcat</groupId>
         <artifactId>tomcat-dbcp</artifactId>
@@ -65,6 +92,14 @@
 <!--        <version>1.4.199</version>-->
 <!--        <scope>test</scope>-->
 <!--    </dependency>-->
+
+
+    <dependency>
+        <groupId>org.apache.maven.surefire</groupId>
+        <artifactId>surefire-junit4</artifactId>
+        <version>2.12.4</version>
+        <type>jar</type>
+    </dependency>
 
 </dependencies>
 

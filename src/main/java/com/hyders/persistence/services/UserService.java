@@ -1,7 +1,7 @@
 package com.hyders.persistence.services;
 
 import com.hyders.persistence.jpa.UserDao;
-import com.hyders.persistence.model.User.User;
+import com.hyders.persistence.model.user.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import javax.transaction.Transactional;

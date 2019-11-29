@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="com.hyders.persistence.model.user.User" table="usertable">
+        <id column="id" name="id" type="int">
+            <generator class="native"/>
+        </id>
+        <property column="userId" name="userId" type="int"/>
+        <property column="ip" generated="never" lazy="false" name="ip" type="string"/>
+        <property column="userAgent" generated="never" lazy="false" name="userAgent" type="string"/>
+        <property column="timestamp" generated="never" lazy="false" name="timestamp" type="date"/>
+    </class>
+</hibernate-mapping>

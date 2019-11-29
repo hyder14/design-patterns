@@ -2,8 +2,11 @@ package com.hyders.persistence;
 
 
 import com.hyders.persistence.jpa.IUserDao;
+import com.hyders.persistence.model.user.User;
 import org.apache.tomcat.dbcp.dbcp.BasicDataSource;
+import org.hibernate.HibernateException;
 import org.hibernate.SessionFactory;
+import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
@@ -14,6 +17,7 @@ import org.springframework.dao.annotation.PersistenceExceptionTranslationPostPro
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 import org.springframework.orm.hibernate5.HibernateTransactionManager;
 import org.springframework.orm.hibernate5.LocalSessionFactoryBean;
+import org.springframework.transaction.PlatformTransactionManager;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 import javax.sql.DataSource;
@@ -23,7 +27,7 @@ import java.util.Properties;
 @EnableTransactionManagement
 @PropertySource("classpath:persistence.properties")
 @ComponentScan({"com.hyders.persistence" })
-@EnableJpaRepositories(basePackages = "com.hyders.persistence.jpa")
+//@EnableJpaRepositories(basePackages = {"com.hyders.persistence.jpa","com.hyders.persistence.model"})
 public class PersistenceConfigTest {
 
     @Autowired
@@ -35,13 +39,17 @@ public class PersistenceConfigTest {
 
     @Bean
     public LocalSessionFactoryBean sessionFactory() {
-
         LocalSessionFactoryBean sessionFactoryBean = new LocalSessionFactoryBean();
         sessionFactoryBean.setDataSource(restDataSource());
         sessionFactoryBean.setPackagesToScan(new String[] {"com.hyders.persistence.model"});
+        sessionFactoryBean.setAnnotatedClasses(User.class);
         sessionFactoryBean.setHibernateProperties(hibernateProperties());
-
+//        org.hibernate.cfg.Configuration configuration = new org.hibernate.cfg.Configuration().configure();
+//        StandardServiceRegistryBuilder builder = new StandardServiceRegistryBuilder()
+//                .applySettings(configuration.getProperties());
+//        SessionFactory sessionFactory = configuration.buildSessionFactory(builder.build());
         return sessionFactoryBean;
+
 }
 
     @Bean
@@ -82,3 +90,5 @@ public class PersistenceConfigTest {
     }
 
 }
+
+

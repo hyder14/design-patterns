@@ -1,22 +1,21 @@
-package com.hyders.persistence.model.User;
-
+package com.hyders.persistence.model.user;
 
 import javax.persistence.*;
 import java.io.Serializable;
 import java.util.Date;
 
-@Entity (name="User")
-@Table (name="usertable")
+@Entity (name="com.hyders.persistence.model.userUser")
+@Table (name="usertable", schema = "dbo")
 public class User implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
     public User() {
-        super();
+        //super();
     }
 
     @Id
-    @GeneratedValue(strategy=GenerationType.AUTO)
+    @GeneratedValue(strategy=GenerationType.IDENTITY)
     @Column (name="id")
     private Long id;
 

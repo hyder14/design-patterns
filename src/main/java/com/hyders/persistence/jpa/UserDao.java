@@ -1,11 +1,6 @@
 package com.hyders.persistence.jpa;
 
-import com.hyders.persistence.model.User.User;
-import org.hibernate.SessionFactory;
-import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
-import org.hibernate.cfg.Configuration;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.annotation.PropertySource;
+import com.hyders.persistence.model.user.User;
 import org.springframework.stereotype.Repository;
 
 @Repository

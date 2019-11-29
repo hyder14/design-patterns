@@ -1,6 +1,6 @@
 package com.hyders.persistence.jpa;
 
-import com.hyders.persistence.model.User.User;
+import com.hyders.persistence.model.user.User;
 import java.util.List;
 
 public interface IUserDao {

@@ -7,6 +7,8 @@ import org.hibernate.Transaction;
 import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
 import org.hibernate.cfg.Configuration;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Bean;
+
 import java.io.Serializable;
 import java.util.List;
 
@@ -89,8 +91,12 @@ public class AbstractJpaDAO<T extends Serializable> {
         delete(entity);
     }
 
+    @Bean
     private static SessionFactory getSessionFactory() {
-        Configuration configuration = new Configuration().configure();
+        Configuration configuration = new Configuration();
+        //Gives error 'Enity not found' if we do not set as an Annotated Class in SessionFactory
+        configuration.addAnnotatedClass(com.hyders.persistence.model.user.User.class);
+        configuration.configure();
         StandardServiceRegistryBuilder builder = new StandardServiceRegistryBuilder()
                 .applySettings(configuration.getProperties());
         SessionFactory sessionFactory = configuration.buildSessionFactory(builder.build());

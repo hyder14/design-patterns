@@ -1,11 +1,11 @@
 package com.hyders.persistence;
 
 
-import com.hyders.persistence.jpa.UserDao;
-import com.hyders.persistence.model.User.User;
+import com.hyders.persistence.model.user.User;
 import com.hyders.persistence.services.UserService;
-import org.hibernate.Session;
 import org.hibernate.SessionFactory;
+import org.hibernate.annotations.NotFound;
+import org.hibernate.annotations.NotFoundAction;
 import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
