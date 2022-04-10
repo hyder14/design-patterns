@@ -20,7 +20,8 @@ import java.util.Properties;
 @EnableTransactionManagement
 @PropertySource("classpath:application-dev.properties")
 @ComponentScan({"com.hyders.persistence" })
-public class PersistenceConfig {
+public class
+PersistenceConfig {
 
     @Autowired
     Environment environment;

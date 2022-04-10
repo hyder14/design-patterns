@@ -32,6 +32,8 @@ public class NYPizza extends Pizza {
 
     @Override
     public String toString() {
+//        return super.toString();
+
         return String.format("Size: %1$s, Topping: %2$s",this.size,this.toppings.toString());
     }
 }
