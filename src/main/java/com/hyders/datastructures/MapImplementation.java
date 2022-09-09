@@ -1,4 +1,4 @@
-package com.hyders.miscellaneous;
+package com.hyders.datastructures;
 
 import org.springframework.lang.Nullable;
 import org.springframework.util.Assert;
@@ -25,10 +25,23 @@ import org.springframework.util.Assert;
 import org.springframework.util.StringUtils;
 
 
-public class CopyTest {
+public class MapImplementation {
 
 
 
+
+        public static void main(String args) {
+            Map<String,String> anOrderedMap = new LinkedHashMap<>();
+            Map<String,String> aMap = Collections.synchronizedMap(new HashMap<>());
+            Set<String> aHashSet = new HashSet();
+
+            Map<String,String> aHashTable = new Hashtable<>();
+
+
+
+
+
+        }
 
 
 }

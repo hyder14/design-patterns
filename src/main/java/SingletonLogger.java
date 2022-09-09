@@ -3,13 +3,18 @@ public class SingletonLogger implements BasicLogger {
 
         private static SingletonLogger logger;
 
-        public SingletonLogger() {
+        private SingletonLogger(){
+
+        }
+
+        private static void getSingletonLogger() {
                 if (logger == null) {
-                        logger = this;
+                        logger = new SingletonLogger();
                 }
         }
 
-        public SingletonLogger getlogger() {
+        public static SingletonLogger getlogger() {
+                getSingletonLogger();
                 return logger;
         }
 

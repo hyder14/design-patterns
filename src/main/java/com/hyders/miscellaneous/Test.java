@@ -7,7 +7,8 @@ public class Test {
 public static void showMessage() {
     System.out.println("this is :" + Test.class.getName());
 }
-    public static void main(String[] args) {
+    public static void
+    main(String[] args) {
         //Test test = new Test();
         Test.showMessage();
 
