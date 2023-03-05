@@ -4,7 +4,7 @@ public class DrawShape {
 
     public static void main(String[] args) {
 
-        String displayChar = "*";
+        String displayChar = "/";
 
         String shape[][] = new String[10][10];
 

@@ -12,14 +12,27 @@ public class Stack {
 
     private Object[] elements;
     private int size;
+    private Object minimum = null;
 
     public Stack(Object[] elements) {
+
+        for (Object element:elements) {
+            if (minimum==null) {
+                minimum=element;
+            }
+            if ((element instanceof Integer) && (Integer)element<(Integer) minimum) {
+                minimum = element;
+            }
+        }
         this.elements = elements;
         size = elements.length;
     }
 
     public void push(Object object) {
         ensureCapacity();
+        if ((object instanceof Integer) && (Integer)object<(Integer) minimum) {
+            minimum = object;
+        }
         elements[size++] = object;
     }
 
@@ -37,6 +50,12 @@ public class Stack {
     }
 
 
+    private Object min(){
+
+        return minimum;
+    }
+
+
     public static void main(String[] args) {
         String[] elem = {"one", "two", "three"};
         Stack stack = new Stack(elem);
@@ -50,6 +69,15 @@ public class Stack {
                 System.out.println(String.format("Popped item =%s", stack.pop()));
                 System.out.println("Elements after popping from stack: " + stack.toString());
             }
+
+
+            Object[] elements = {1,2,3,4,5,6,7,8,9};
+
+            Stack stack1 = new Stack(elements);
+
+            stack1.push(-5);
+
+            System.out.println("minimum:" + stack1.min());
 
     }
 

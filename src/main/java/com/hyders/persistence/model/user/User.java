@@ -14,6 +14,15 @@ public class User implements Serializable {
         //super();
     }
 
+/*    public User (User user) {
+
+        this.id = user.id;
+        this.ip = user.ip;
+        this.timestamp = user.timestamp;
+        this.userAgent = user.userAgent;
+
+    }*/
+
     @Id
     @GeneratedValue(strategy=GenerationType.IDENTITY)
     @Column (name="id")
