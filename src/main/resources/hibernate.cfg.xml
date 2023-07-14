@@ -21,6 +21,8 @@
    <property name="show_sql">true</property>
    <property name="hibernate.current_session_context_class">thread</property>
    <property name="hibernate.default_schema">dbo</property>
+   <property name="hibernate.generate_statistics">true</property>
+
 <!--   <mapping class="com.hyders.persistence.model.user.User"/>-->
    <mapping resource="com.hyders.persistence.model.user.User.hbm.xml"/>
 </session-factory>

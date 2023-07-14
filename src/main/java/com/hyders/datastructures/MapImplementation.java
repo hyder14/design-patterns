@@ -30,14 +30,31 @@ public class MapImplementation {
 
 
 
-        public static void main(String args) {
+        public static void main(String[] args) {
             Map<String,String> anOrderedMap = new LinkedHashMap<>();
             Map<String,String> aMap = Collections.synchronizedMap(new HashMap<>());
             Set<String> aHashSet = new HashSet();
 
             Map<String,String> aHashTable = new Hashtable<>();
 
+            getValueFromMap();
 
+        }
+
+
+        public static void getValueFromMap() {
+
+            Map<String, Integer> fruits = new LinkedHashMap<>();
+            fruits.put("APPLE", 3);
+            fruits.put("WATERMELON", 5);
+            fruits.put("STRAWBERRY", 10);
+
+
+            Optional<Map.Entry<String,Integer>> mapEntry = fruits.entrySet().stream().filter(x-> x.getKey().equalsIgnoreCase("APPLE")).findFirst();
+
+            if (mapEntry.isPresent()) {
+                System.out.println(mapEntry.get().getValue());
+            }
 
 
 

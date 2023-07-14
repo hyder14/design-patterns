@@ -26,7 +26,7 @@ import java.util.Properties;
 
 @Configuration
 @EnableTransactionManagement
-@PropertySource("classpath:persistence.properties")
+@PropertySource({"classpath:persistence.properties"})
 @ComponentScan({"com.hyders.persistence" })
 //@EnableJpaRepositories(basePackages = {"com.hyders.persistence.jpa","com.hyders.persistence.model"})
 public class PersistenceConfigTest {
@@ -70,6 +70,8 @@ public class PersistenceConfigTest {
                 setProperty("hibernate.dialect",
                         environment.getProperty("hibernate.dialect"));
                 setProperty("hibernate.globally_quoted_identifiers",
+                        "true");
+                setProperty("hibernate.generate_statistics",
                         "true");
             }
         };

@@ -14,6 +14,8 @@ public class StringImmutabilityTest {
 
         String z = "abc";
 
+
+
         String internMessg = String.format("Intern, x: %1s, y: %2s, z:%3s", x.intern(), y.intern(), z.intern());
 
         System.out.println("Intern: " + internMessg);
@@ -27,6 +29,13 @@ public class StringImmutabilityTest {
 
 
         System.out.println("Hashcode: y==z: " + (y.hashCode()==z.hashCode()));
+
+
+        System.out.println("Changing the value of y");
+
+        y= "new value";
+
+        System.out.println("y: " + y);
 
 
     }

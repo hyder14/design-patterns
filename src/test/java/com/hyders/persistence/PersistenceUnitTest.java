@@ -23,7 +23,7 @@ import java.util.List;
 import static org.mockito.Mockito.*;
 
 
-@RunWith(MockitoJUnitRunner.class)
+@RunWith(MockitoJUnitRunner.StrictStubs.class)
 public class PersistenceUnitTest {
 
 
@@ -72,6 +72,9 @@ public class PersistenceUnitTest {
         when (userService.findOne(2)).thenReturn(cloneUser);
         user2.setUserAgent("Safari");
         when (userService.update(user2)).thenReturn(user2);
+
+        List updatedUserList = Arrays.asList(userList);
+        updatedUserList.remove(1);
 
     }
 

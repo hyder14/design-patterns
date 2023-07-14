@@ -4,11 +4,11 @@ package com.hyders.persistence;
 import com.hyders.persistence.model.user.User;
 import com.hyders.persistence.services.UserService;
 import org.hibernate.SessionFactory;
-import org.hibernate.annotations.NotFound;
-import org.hibernate.annotations.NotFoundAction;
 import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
@@ -27,6 +27,8 @@ public class PersistenceIntegrationTest {
     @Autowired
     UserService userService;
 
+    private static Logger logger = LoggerFactory.getLogger(PersistenceIntegrationTest.class);
+
 
     @Test
     @Transactional
@@ -40,6 +42,8 @@ public class PersistenceIntegrationTest {
         testUser.setTimestamp(new Date());
 
         userService.create(testUser);
+
+        logger.info("Creating user: " + testUser.toString());
 
         Assert.assertTrue (userService.findAll().size() == prevcount + 1);
 
