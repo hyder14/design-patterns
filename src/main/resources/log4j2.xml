@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration status="DEBUG">
+    <Properties>
+        <Property name="fileName">C:/temp/rolling-file.log</Property>
+        <Property name="fileNamePattern">C:/temp/rolling-file-%d{dd-MM-yyyy}-%i.log</Property>
+        <Property name="logPattern">%d{dd-MM-yyyy HH:mm:ss,SSS} [%t] %-5p %c - %m%n</Property>
+    </Properties>
+    <Appenders>
+        <Console name="Console" target="SYSTEM_OUT">
+            <PatternLayout pattern="${logPattern}"/>
+        </Console>
+        <RollingFile name="MyRollingFile" fileName="${fileName}" filePattern="${fileNamePattern}">
+            <PatternLayout pattern="${logPattern}"/>
+            <Policies>
+                <TimeBasedTriggeringPolicy/>
+                <SizeBasedTriggeringPolicy size="20MB"/>
+            </Policies>
+            <DefaultRolloverStrategy max="10"/>
+        </RollingFile>
+    </Appenders>
+    <Loggers>
+        <Logger name="my.root.package" level="info" additivity="false">
+            <AppenderRef ref="Console"/>
+            <AppenderRef ref="MyRollingFile"/>
+        </Logger>
+        <Logger name="org.hibernate.stat" level="debug">
+            <AppenderRef ref="Console"/>
+            <AppenderRef ref="MyRollingFile"/>
+        </Logger>
+        <Root level="info">
+            <AppenderRef ref="Console"/>
+        </Root>
+    </Loggers>
+</Configuration>
