@@ -7,30 +7,40 @@
     <groupId>com.khyder</groupId>
     <artifactId>designpatterns</artifactId>
     <version>1.0-SNAPSHOT</version>
+    <parent>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-parent</artifactId>
+        <version>3.3.0</version>
+        <relativePath/> <!-- lookup parent from repository -->
+    </parent>
 
     <properties>
-        <maven.compiler.source>1.8</maven.compiler.source>
-        <maven.compiler.target>1.8</maven.compiler.target>
+        <maven.compiler.source>1.17</maven.compiler.source>
+        <maven.compiler.target>1.17</maven.compiler.target>
     </properties>
 
+<!--
     <repositories>
         <repository>
             <id>mssqlJDBC</id>
             <name>Repo for MSSQL AUTH</name>
-            <url>http://ida.fel.cvut.cz/maven</url>
+&lt;!&ndash;            <url>http://ida.fel.cvut.cz/maven</url>&ndash;&gt;
         </repository>
     </repositories>
+-->
 
     <dependencies>
+<!--
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter</artifactId>
             <version>2.6.7</version>
         </dependency>
+-->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
-            <version>2.6.7</version>
+<!--            <version>2.6.7</version>-->
             <exclusions>
                 <exclusion>
                     <groupId>org.springframework.boot</groupId>
@@ -41,12 +51,12 @@
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-thymeleaf</artifactId>
-            <version>2.6.7</version>
+<!--            <version>2.6.7</version>-->
         </dependency>
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-data-jpa</artifactId>
-            <version>2.6.7</version>
+<!--            <version>2.6.7</version>-->
         </dependency>
         <!-- https://mvnrepository.com/artifact/com.h2database/h2 -->
         <dependency>
@@ -90,6 +100,7 @@
     -->
 
         <!-- https://mvnrepository.com/artifact/com.microsoft.sqlserver/sqljdbc_auth -->
+<!--
         <dependency>
             <groupId>com.microsoft.sqlserver</groupId>
             <artifactId>sqljdbc_auth</artifactId>
@@ -98,6 +109,7 @@
             <scope>runtime</scope>
             <type>dll</type>
         </dependency>
+-->
 
     <!--    <dependency>
             <groupId>com.microsoft.sqlserver</groupId>
@@ -166,7 +178,7 @@
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-test</artifactId>
-            <version>2.6.7</version>
+<!--            <version>2.6.7</version>-->
             <scope>compile</scope>
         </dependency>
         <!-- https://mvnrepository.com/artifact/org.springframework/spring-test -->
